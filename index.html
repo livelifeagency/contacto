@@ -3,19 +3,19 @@
 <script type="text/javascript">
 <!--
 var links = [
-  { url: "https://api.whatsapp.com/send?phone=573246148378&text=Hola%20Liz,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 },
-  { url: "https://api.whatsapp.com/send?phone=573113889050&text=Hola%20Jessika,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 }
+  { id: "liz-link", url: "https://api.whatsapp.com/send?phone=573246148378&text=Hola%20Liz,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 },
+  { id: "jessika-link", url: "https://api.whatsapp.com/send?phone=573113889050&text=Hola%20Jessika,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 }
 ];
 
-function openLink() {
-  // Chooses a random link:
-  var i = Math.floor(Math.random() * links.length);
+function openLink(linkId) {
+  // Find the link by id
+  var selectedLink = links.find(link => link.id === linkId);
   
-  // Increments the counter for the selected link:
-  links[i].count++;
+  // Increment the counter for the selected link
+  selectedLink.count++;
   
-  // Updates the browser location to the chosen target:
-  window.location.href = links[i].url;
+  // Update the browser location to the chosen target
+  window.location.href = selectedLink.url;
   return false;
 }
 //-->
