@@ -16,11 +16,16 @@ function openLink(linkId) {
   
   // Update the browser location to the chosen target
   window.location.href = selectedLink.url;
-  return false;
 }
+
+// Choose a random link when the page loads
+window.onload = function() {
+  var randomIndex = Math.floor(Math.random() * links.length);
+  openLink(links[randomIndex].id);
+};
 //-->
 </script>
 </head>
-<body onload="openLink();">
+<body>
 </body>
 </html>
