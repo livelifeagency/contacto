@@ -23,11 +23,8 @@
     // Display the counter value on the page
     document.getElementById("counter").innerText = "Link Clicked: " + selectedLink.count;
 
-    // Disable the link to prevent further clicks
-    document.getElementById("whatsappLink").setAttribute("disabled", "true");
-
-    // Update the browser location to the chosen target
-    window.location.href = selectedLink.url;
+    // Enable the link for further clicks
+    document.getElementById("whatsappLink").removeAttribute("disabled");
   }
   //-->
   </script>
@@ -35,7 +32,9 @@
 <body onload="openLink();">
   <h1>Random WhatsApp Link</h1>
   <p id="counter">Loading...</p>
-  <a id="whatsappLink" href="#" onclick="return false;">WhatsApp Link</a>
+  <a id="whatsappLink" href="#" onclick="return false;" disabled>WhatsApp Link</a>
+  <button onclick="openLink()">Allow Another Click</button>
 </body>
 </html>
+
 
