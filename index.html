@@ -1,26 +1,40 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<script type="text/javascript">
-<!--
-var links = [
-  { url: "https://api.whatsapp.com/send?phone=573246148378&text=Hola%20Liz,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 },
-  { url: "https://api.whatsapp.com/send?phone=573113889050&text=Hola%20Jessika,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 }
-];
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random WhatsApp Link</title>
+  <script type="text/javascript">
+  <!--
+  var links = [
+    { url: "https://wa.me/573246148378?text=Hola%20Liz,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 },
+    { url: "https://wa.me/573113889050?text=Hola%20Jessika,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 }
+  ];
 
-function openLink() {
-  // Choose a random link
-  var randomIndex = Math.floor(Math.random() * links.length);
-  var selectedLink = links[randomIndex];
+  function openLink() {
+    // Choose a random link
+    var randomIndex = Math.floor(Math.random() * links.length);
+    var selectedLink = links[randomIndex];
 
-  // Increment the counter for the selected link
-  selectedLink.count++;
+    // Increment the counter for the selected link
+    selectedLink.count++;
 
-  // Update the browser location to the chosen target
-  window.location.href = selectedLink.url;
-}
-//-->
-</script>
+    // Display the counter value on the page
+    document.getElementById("counter").innerText = "Link Clicked: " + selectedLink.count;
+
+    // Disable the link to prevent further clicks
+    document.getElementById("whatsappLink").setAttribute("disabled", "true");
+
+    // Update the browser location to the chosen target
+    window.location.href = selectedLink.url;
+  }
+  //-->
+  </script>
 </head>
 <body onload="openLink();">
+  <h1>Random WhatsApp Link</h1>
+  <p id="counter">Loading...</p>
+  <a id="whatsappLink" href="#" onclick="return false;">WhatsApp Link</a>
 </body>
 </html>
+
