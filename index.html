@@ -15,7 +15,7 @@ function openLink() {
   links[i].count++;
   
   // Updates the browser location to the chosen target:
-  parent.location = links[i].url;
+  window.location.href = links[i].url;
   return false;
 }
 //-->
