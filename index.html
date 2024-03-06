@@ -15,13 +15,16 @@ function openLink(linkId) {
   selectedLink.count++;
   
   // Update the browser location to the chosen target
+  console.log("Redirecting to:", selectedLink.url);
   window.location.href = selectedLink.url;
 }
 
 // Choose a random link when the page loads
 window.onload = function() {
   var randomIndex = Math.floor(Math.random() * links.length);
-  openLink(links[randomIndex].id);
+  var randomLinkId = links[randomIndex].id;
+  console.log("Selected random link:", randomLinkId);
+  openLink(randomLinkId);
 };
 //-->
 </script>
