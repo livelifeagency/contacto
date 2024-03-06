@@ -3,11 +3,11 @@
 <script type="text/javascript">
 <!--
 var links = [
-  { id: "liz-link", url: "https://api.whatsapp.com/send?phone=573246148378&text=Hola%20Liz,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 },
-  { id: "jessika-link", url: "https://api.whatsapp.com/send?phone=573113889050&text=Hola%20Jessika,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 }
+  { url: "https://api.whatsapp.com/send?phone=573246148378&text=Hola%20Liz,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 },
+  { url: "https://api.whatsapp.com/send?phone=573113889050&text=Hola%20Jessika,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 }
 ];
 
-function openRandomLink() {
+function openLink() {
   // Choose a random link
   var randomIndex = Math.floor(Math.random() * links.length);
   var selectedLink = links[randomIndex];
@@ -21,6 +21,6 @@ function openRandomLink() {
 //-->
 </script>
 </head>
-<body onload="openRandomLink();">
+<body onload="openLink();">
 </body>
 </html>
