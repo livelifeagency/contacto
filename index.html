@@ -7,8 +7,8 @@
   <script type="text/javascript">
   <!--
   var links = [
-    { url: "https://wa.me/573246148378?text=Hola%20Liz,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 },
-    { url: "https://wa.me/573113889050?text=Hola%20Jessika,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 }
+    { url: "https://wa.me/573246148378?text=Hola%20Liz,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", key: "lizCount" },
+    { url: "https://wa.me/573113889050?text=Hola%20Jessika,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", key: "jessikaCount" }
   ];
 
   function openLink() {
@@ -17,7 +17,8 @@
     var selectedLink = links[randomIndex];
 
     // Increment the counter for the selected link
-    selectedLink.count++;
+    selectedLink.count = (localStorage[selectedLink.key] || 0) + 1;
+    localStorage[selectedLink.key] = selectedLink.count;
 
     // Display the counter value on the page
     document.getElementById("counter").innerText = "Link Clicked: " + selectedLink.count;
