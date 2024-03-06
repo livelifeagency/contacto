@@ -7,28 +7,20 @@ var links = [
   { id: "jessika-link", url: "https://api.whatsapp.com/send?phone=573113889050&text=Hola%20Jessika,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 }
 ];
 
-function openLink(linkId) {
-  // Find the link by id
-  var selectedLink = links.find(link => link.id === linkId);
-  
+function openRandomLink() {
+  // Choose a random link
+  var randomIndex = Math.floor(Math.random() * links.length);
+  var selectedLink = links[randomIndex];
+
   // Increment the counter for the selected link
   selectedLink.count++;
-  
+
   // Update the browser location to the chosen target
-  console.log("Redirecting to:", selectedLink.url);
   window.location.href = selectedLink.url;
 }
-
-// Choose a random link when the page loads
-window.onload = function() {
-  var randomIndex = Math.floor(Math.random() * links.length);
-  var randomLinkId = links[randomIndex].id;
-  console.log("Selected random link:", randomLinkId);
-  openLink(randomLinkId);
-};
 //-->
 </script>
 </head>
-<body>
+<body onload="openRandomLink();">
 </body>
 </html>
