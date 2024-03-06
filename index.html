@@ -1,37 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random WhatsApp Link</title>
-  <script type="text/javascript">
-  <!--
-  var links = [
-    { url: "https://wa.me/573246148378?text=Hola%20Liz,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", key: "lizCount" },
-    { url: "https://wa.me/573113889050?text=Hola%20Jessika,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", key: "jessikaCount" }
-  ];
+<script type="text/javascript">
+<!--
+var links = [
+  { url: "https://api.whatsapp.com/send?phone=573246148378&text=Hola%20Liz,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 },
+  { url: "https://api.whatsapp.com/send?phone=573113889050&text=Hola%20Jessika,%20me%20interesa,%20cual%20es%20el%20paso%20a%20seguir?", count: 0 }
+];
 
-  function openLink() {
-    // Choose a random link
-    var randomIndex = Math.floor(Math.random() * links.length);
-    var selectedLink = links[randomIndex];
-
-    // Increment the counter for the selected link
-    selectedLink.count = (localStorage[selectedLink.key] || 0) + 1;
-    localStorage[selectedLink.key] = selectedLink.count;
-
-    // Display the counter value on the page (visible in the page source)
-    document.getElementById("counter").innerText = "Link Clicked: " + selectedLink.count;
-
-    // Update the browser location to the chosen target
-    window.location.href = selectedLink.url;
-  }
-  //-->
-  </script>
+function openLink() {
+  // Chooses a random link:
+  var i = Math.floor(Math.random() * links.length);
+  
+  // Increments the counter for the selected link:
+  links[i].count++;
+  
+  // Updates the browser location to the chosen target:
+  parent.location = links[i].url;
+  return false;
+}
+//-->
+</script>
 </head>
 <body onload="openLink();">
-  <h1>Random WhatsApp Link</h1>
-  <p id="counter"><!-- Counter will be visible in the page source --></p>
 </body>
 </html>
 
