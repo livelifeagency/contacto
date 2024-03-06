@@ -10,35 +10,18 @@ var links = [
 function openLink() {
   // Chooses a random link:
   var i = Math.floor(Math.random() * links.length);
-
+  
   // Increments the counter for the selected link:
   links[i].count++;
-
-  // Display the counter value on the page:
-  document.getElementById("counter").innerText = "Link Clicked: " + links[i].count;
-
+  
   // Updates the browser location to the chosen target:
   parent.location = links[i].url;
   return false;
-}
-
-function resetCounters() {
-  // Reset all counters to zero:
-  links.forEach(function(link) {
-    link.count = 0;
-  });
-
-  // Display the reset counters on the page:
-  document.getElementById("counter").innerText = "Link Clicked: 0";
 }
 //-->
 </script>
 </head>
 <body onload="openLink();">
-  <h1>Random WhatsApp Link</h1>
-  <p id="counter">Loading...</p>
-  <button onclick="resetCounters()">Reset Counters</button>
 </body>
 </html>
-
 
