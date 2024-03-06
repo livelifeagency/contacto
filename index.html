@@ -20,20 +20,18 @@
     selectedLink.count = (localStorage[selectedLink.key] || 0) + 1;
     localStorage[selectedLink.key] = selectedLink.count;
 
-    // Display the counter value on the page
+    // Display the counter value on the page (visible in the page source)
     document.getElementById("counter").innerText = "Link Clicked: " + selectedLink.count;
 
-    // Enable the link for further clicks
-    document.getElementById("whatsappLink").removeAttribute("disabled");
+    // Update the browser location to the chosen target
+    window.location.href = selectedLink.url;
   }
   //-->
   </script>
 </head>
 <body onload="openLink();">
   <h1>Random WhatsApp Link</h1>
-  <p id="counter">Loading...</p>
-  <a id="whatsappLink" href="#" onclick="return false;" disabled>WhatsApp Link</a>
-  <button onclick="openLink()">Allow Another Click</button>
+  <p id="counter"><!-- Counter will be visible in the page source --></p>
 </body>
 </html>
 
